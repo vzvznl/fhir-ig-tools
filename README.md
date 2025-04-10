@@ -1,7 +1,11 @@
 # fhir-ig-tools
 
 ## Visual Studio Code FSH snippets
-Zet het bestand fsh.code-snippets in de `.vscode` directory van je project. Pas de informatie naar eigen inzicht aan.
+Put the `fsh.code-snippets` file in the `.vscode` directory of your project. Adjust the snippets to match your own situation.
 
-Gebruik: https://code.visualstudio.com/docs/editing/userdefinedsnippets
+Explanation: https://code.visualstudio.com/docs/editing/userdefinedsnippets
 
+## Create a keyboard shortcut to paste a generated UUID
+
+- Install a UUID generator extension in VSCode: The UUID Generator by Motivesoft (motivesoft.co.uk) has a lot of downloads and is verified
+- This extension installs a default keyboard shortcut that you can use to have the generator generate a UUID and paste it in your code.
