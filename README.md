@@ -1,5 +1,7 @@
 # fhir-ig-tools
 
+This repository contains tools/scripts/snippets to help you create FHIR artefacts and IGs.
+
 ## Visual Studio Code FSH snippets
 Put the `fsh.code-snippets` file in the `.vscode` directory of your project. Adjust the snippets to match your own situation.
 
