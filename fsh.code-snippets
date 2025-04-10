@@ -16,61 +16,75 @@
 	// 	"description": "Log output to console"
 	// }
 	"VZVZ FSH ValueSet": {
-	  "prefix": ["vs", "VS"],
-	  "body": [
-		"ValueSet: ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
-		"Id: ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}",
-		"Title: \"${3:${TM_FILENAME_BASE/([a-z]*)[_-]+([a-z]*)/${1:/capitalize} ${2:/capitalize}/g}}\"",
-		"Description: \"$4\"",
-		"* ^name = \"${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}\"",
-		"* ^meta.profile = \"http://hl7.org/fhir/StructureDefinition/ValueSet\"",
-		"* ^url = \"${5:http://vzvz.nl/fhir/ValueSet/${2}}\"",
-		"* ^identifier.use = #official",
-		"* ^identifier.value = \"${5}\"",
-		"* ^date = ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T12:00:00${CURRENT_TIMEZONE_OFFSET}",
-		"* insert ContactAndPublisher",
-		"$0"
-	  ],
-	  "description": "Create a VZVZ FSH ValueSet"
+		"prefix": [
+			"vs",
+			"VS"
+		],
+		"body": [
+			"ValueSet: ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
+			"Id: ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}",
+			"Title: \"${3:${TM_FILENAME_BASE/([a-z]*)[_-]+([a-z]*)/${1:/capitalize} ${2:/capitalize}/g}}\"",
+			"Description: \"$4\"",
+			"* ^name = \"${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}\"",
+			"* ^meta.profile = \"http://hl7.org/fhir/StructureDefinition/ValueSet\"",
+			"* ^url = \"${5:http://vzvz.nl/fhir/ValueSet/${2}}\"",
+			"* ^identifier.use = #official",
+			"* ^identifier.value = \"${5}\"",
+			"* ^date = ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T12:00:00${CURRENT_TIMEZONE_OFFSET}",
+			"* insert ContactAndPublisher",
+			"$0"
+		],
+		"description": "Create a VZVZ FSH ValueSet"
 	},
 	"VZVZ FSH CodeSystem": {
-		"prefix": ["cs", "CS"],
+		"prefix": [
+			"cs",
+			"CS"
+		],
 		"body": [
-		  "CodeSystem: ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
-		  "Id: ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}",
-		  "Title: \"${3:${TM_FILENAME_BASE/([a-z]*)[_-]+([a-z]*)/${1:/capitalize} ${2:/capitalize}/g}}\"",
-		  "Description: \"$4\"",
-		  "* ^name = \"${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}\"",
-		  "* ^meta.profile = \"http://hl7.org/fhir/StructureDefinition/CodeSystem\"",
-		  "* ^date = ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T12:00:00${CURRENT_TIMEZONE_OFFSET}",
-		  "* insert ContactAndPublisher",
-		  "* ^language = #nl-NL",
-		  "* ^url = \"${5:http://vzvz.nl/fhir/CodeSystem/${2}}\"",
-		  "* ^identifier.use = #official",
-		  "* ^identifier.value = \"${5}\"",
-		  "* ^version = \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}\"",
-		  "* ^status = #active",
-		  "* ^experimental = false",
-		  "$0"
+			"CodeSystem: ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
+			"Id: ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}",
+			"Title: \"${3:${TM_FILENAME_BASE/([a-z]*)[_-]+([a-z]*)/${1:/capitalize} ${2:/capitalize}/g}}\"",
+			"Description: \"$4\"",
+			"* ^name = \"${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}\"",
+			"* ^meta.profile = \"http://hl7.org/fhir/StructureDefinition/CodeSystem\"",
+			"* ^date = ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T12:00:00${CURRENT_TIMEZONE_OFFSET}",
+			"* insert ContactAndPublisher",
+			"* ^language = #nl-NL",
+			"* ^url = \"${5:http://vzvz.nl/fhir/CodeSystem/${2}}\"",
+			"* ^identifier.use = #official",
+			"* ^identifier.value = \"${5}\"",
+			"* ^version = \"${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}\"",
+			"* ^status = #active",
+			"* ^experimental = false",
+			"$0"
 		],
 		"description": "Create a VZVZ FSH CodeSystem"
 	},
 	"VZVZ FSH CodeSystem code": {
-		"prefix": ["csc", "CSC"],
+		"prefix": [
+			"csc",
+			"CSC"
+		],
 		"body": [
 			"* #$0code \"description\""
 		],
 		"description": "Add a CodeSystem concept in FSH"
 	},
 	"VZVZ FSH ValueSet include": {
-		"prefix": ["vsc", "VSC"],
+		"prefix": [
+			"vsc",
+			"VSC"
+		],
 		"body": [
 			"* include codes from system ${CLIPBOARD}"
 		],
 		"description": "FSH Add CodeSystem in clipboard to this ValueSet"
 	},
 	"VZVZ FSH Example": {
-		"prefix": ["exp"],
+		"prefix": [
+			"exp"
+		],
 		"body": [
 			"Instance: ${1:${TM_FILENAME_BASE/(.*)/${1:/kebabcase}/}}",
 			"InstanceOf: $2",
@@ -83,31 +97,40 @@
 		]
 	},
 	"FSH narrative": {
-		"prefix": ["nar"],
+		"prefix": [
+			"nar"
+		],
 		"body": [
 			"* text",
 			"  * status = #generated",
-			"  * div = \"<div xmlns='http://www.w3.org/1999/xhtml'>${0}</div>\"",			
+			"  * div = \"<div xmlns='http://www.w3.org/1999/xhtml'>${0}</div>\"",
 		]
 	},
 	"FSH narrative NL": {
-		"prefix": ["narn"],
+		"prefix": [
+			"narn"
+		],
 		"body": [
 			"* text",
 			"  * status = #generated",
-			"  * div = \"<div xmlns='http://www.w3.org/1999/xhtml' xml:lang='nl-NL' lang='nl-NL'>${0}</div>\"",			
+			"  * div = \"<div xmlns='http://www.w3.org/1999/xhtml' xml:lang='nl-NL' lang='nl-NL'>${0}</div>\"",
 		]
 	},
 	"FSH narrative EN": {
-		"prefix": ["nare"],
+		"prefix": [
+			"nare"
+		],
 		"body": [
 			"* text",
 			"  * status = #generated",
-			"  * div = \"<div xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>${0}</div>\"",			
+			"  * div = \"<div xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>${0}</div>\"",
 		]
 	},
 	"FSH profile": {
-		"prefix": ["fp", "FP"],
+		"prefix": [
+			"fp",
+			"FP"
+		],
 		"body": [
 			"Profile: ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
 			"Parent: $3",
@@ -123,7 +146,10 @@
 		"description": "FSH snippet to define profile"
 	},
 	"FSH invariant": {
-		"prefix": ["fi", "FI"],
+		"prefix": [
+			"fi",
+			"FI"
+		],
 		"body": [
 			"Invariant: ${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}",
 			"Description: \"${2}\"",
@@ -133,7 +159,10 @@
 		"description": "FSH snippet to create an invariant"
 	},
 	"FSH extension": {
-		"prefix": ["fe", "FE"],
+		"prefix": [
+			"fe",
+			"FE"
+		],
 		"body": [
 			"Extension: ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
 			"Id: ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}",
@@ -150,7 +179,10 @@
 		"description": "FSH snippet to create extension"
 	},
 	"FSH Slicing Definition": {
-		"prefix": ["fs", "FS"],
+		"prefix": [
+			"fs",
+			"FS"
+		],
 		"body": [
 			"* ${CLIPBOARD} ^slicing.discriminator.type = #value",
 			"  * ^slicing.discriminator.path = \"${1:code}\"",
@@ -167,137 +199,69 @@
 			"  ${1:code} = ${9:#codeB}"
 		],
 		"description": "FSH snippet to define slicing for an element using the clipboard value"
-	},	  
-	  
-
-	// "Tiro FSH is-a Value Set": {
-	//   "prefix": ["vs", "VS", "is-a", "children"],
-	//   "body": [
-	// 	"ValueSet: ${1:$TM_FILENAME_BASE}",
-	// 	"Id: ${2:${TM_FILENAME_BASE/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${1:/downcase}${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}${10:/downcase}/g}}",
-	// 	"Title: \"${3:${TM_FILENAME_BASE/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}}\"",
-	// 	"Description: \"ValueSet containing all descendants of ${4:$CLIPBOARD}\"",
-	// 	"* codes from system ${6:SCT} where concept is-a #${7:${CLIPBOARD/(\\d+).+/$1/}}"
-	//   ],
-	//   "description": "Create a TIRO FSH ValueSet containing all SCT descendants of a concept in clipboard"
-	// },
-	/*"Tiro FSH ECL Value Set": {
-	  "prefix": ["vs", "VS", "constraint", "children"],
-	  "body": [
-		"ValueSet: ${1:$TM_FILENAME_BASE}",
-		"Id: ${2:${TM_FILENAME_BASE/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${1:/downcase}${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}${10:/downcase}/g}}",
-		"Title: \"${3:${TM_FILENAME_BASE/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}}\"",
-		"Description: \"ValueSet containing all descendants of ${4:$CLIPBOARD}\"",
-		"* codes from system ${6:SCT} where constraint = #<<${7:${CLIPBOARD/(\\d+).+/$1/}}"
-	  ],
-	  "description": "Create a TIRO FSH ValueSet containing an ECL query based on a concept in clipboard"
-	},*/
-	// "Tiro FSH CodeSystem": {
-	//   "prefix": ["cs", "CS"],
-	//   "body": [
-	// 	"CodeSystem: ${1:$TM_FILENAME_BASE}",
-	// 	"Id: ${2:${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}}",
-	// 	"Title: \"${3:${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}}\"",
-	// 	"Description: \"$4\""
-	//   ],
-	//   "description": "Create a FSH Code System"
-	// },
-	// "Tiro FSH CS Supplement": {
-	//   "prefix": ["supplement"],
-	//   "body": [
-	// 	"CodeSystem: ${1:$TM_FILENAME_BASE}",
-	// 	"Id: ${2:${1/(([A-Z]*)[_]([A-Z]*))|(([A-Z]*[a-z0-9]+)([A-Z]+))|(([A-Z]+)([A-Z0-9])([a-z]))/${2:/downcase}${5:/downcase}${8:/downcase}-${3:/downcase}${6:/downcase}${9:/downcase}$10/g}}",
-	// 	"Title: \"${3:${1/[_]|(([a-z0-9])([A-Z]))|(([A-Z])([A-Z0-9])([a-z]))/$2$5 $3$6$7/g}}\"",
-	// 	"Description: \"$4\"",
-	// 	"* ^content = #supplement",
-	// 	"* ^supplements = $5"
-	//   ],
-	//   "description": "Create a FSH Code System"
-	// },
-
+	},
+	"FHIR Bundle (searchset)": {
+		"prefix": [
+			"fsh-bundle-searchset",
+			"fbs",
+			"FBS"
+		],
+		"body": [
+			"Instance: ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}",
+			"InstanceOf: Bundle",
+			"Usage: #example",
+			"* type = #searchset",
+			"* total = ${2:0}",
+			"// Add entries like the following:",
+			"// * entry[+].fullUrl = \"http://example.org/fhir/${3:ResourceType}/${4:id}\"",
+			"// * entry[=].resource = Reference(${5:YourResourceInstance})",
+			"// * entry[=].search.mode = #${6|match,include,outcome|}"
+		],
+		"description": "FSH Bundle of type searchset"
+	},
+	"FHIR Bundle Entry (FSH)": {
+		"prefix": ["fsh-bundle-entry", "fbse", "FBSE"],
+		"body": [
+			"* entry[+].fullUrl = \"${1|http://example.org/fhir/${2:ResourceType}/${3:id},urn:uuid:${4:00000000-0000-0000-0000-000000000000}|}\"",
+			"* entry[=].resource = Reference(${3:ResourceInstanceName})",
+			"* entry[=].search.mode = #${4|match,include,outcome|}"
+		],
+		"description": "FSH entry for a Bundle with selectable search.mode"
+	},
 	"Add semantic to useContext": {
-	  "prefix": ["semantic"],
-	  "body": [
-		"* insert Semantic(${1|finding,disorder,procedure,regime/therapy,observable entity,situation,body-structure,morphologic-abnormality,cell,social-concept,person,religion/philosophy,occupation,event,substance,product,qualifier-value|})",
-		"$0"
-	  ],
-	  "description": "Add semantic context to useContext."
+		"prefix": [
+			"semantic"
+		],
+		"body": [
+			"* insert Semantic(${1|finding,disorder,procedure,regime/therapy,observable entity,situation,body-structure,morphologic-abnormality,cell,social-concept,person,religion/philosophy,occupation,event,substance,product,qualifier-value|})",
+			"$0"
+		],
+		"description": "Add semantic context to useContext."
 	},
 	"Add SNOMED-CT code": {
-	  "prefix": ["sct", "snomed"],
-	  "body": ["* ${1:SCT}#${2:code} \"${3:displayText}\"$0"]
+		"prefix": [
+			"sct",
+			"snomed"
+		],
+		"body": [
+			"* ${1:SCT}#${2:code} \"${3:displayText}\"$0"
+		]
 	},
 	"Copy SNOMED-CT code": {
-	  "prefix": ["copy sct", "copy snomed"],
-	  "body": [
-		"* ${1:SCT}#${CLIPBOARD/(\\d+).+/$1/} \"${2:${CLIPBOARD/\\d+\\s\\|(.+)\\|/$1/}}\"$0"
-	  ]
+		"prefix": [
+			"copy sct",
+			"copy snomed"
+		],
+		"body": [
+			"* ${1:SCT}#${CLIPBOARD/(\\d+).+/$1/} \"${2:${CLIPBOARD/\\d+\\s\\|(.+)\\|/$1/}}\"$0"
+		]
 	},
 	"Add SNOMED-CT descendants": {
-	  "prefix": ["is-a"],
-	  "body": ["* codes from system $SCT where concept is-a #$0"]
-	},
-	// "Add new Tiro code": {
-	//   "prefix": ["new tiro", "tiro"],
-	//   "body": ["* TIRO#${1/([^\\s]*)(\\s?)/${1:/downcase}${2:+-}/g} \"$1\"$0"]
-	// },
-	// "Add new local code": {
-	//   "prefix": ["new local", "local"],
-	//   "body": ["* #${1/([^\\s]*)(\\s?)/${1:/downcase}${2:+-}/g} \"$1\"$0"]
-	// },
-	// "Add new Tiro concept with random code": {
-	//   "prefix": ["new random tiro"],
-	//   "body": ["* $$TIRO#$UUID \"${1:displayText}\"$0"]
-	// },
-	// "Create new building block": {
-	//   "prefix": ["block"],
-	//   "body": [
-	// 	"# yaml-language-server: $schema=./block.schema.json",
-	// 	"_id: ${1:$TM_FILENAME_BASE}",
-	// 	"designers: [\"Tiro.health\"]",
-	// 	"title: \"$2\" #choose title that will be showed in the suggestions menu.",
-	// 	"blockType: \"$4\" #kebab-case in english and end with -discipline",
-	// 	"renderType: ${5|qa-rich-text,timestamped-rich-text,table-rich-text,rich-text-with-questionnaire|}",
-	// 	"description: \"\" #Write a proper description or summary of the building block. This will be displayed in de suggestion menu",
-	// 	"tags: [$6\"paragraph\", \"care-path or disease\", \"discipline\"] #small caps and must include medical discpline and phase of carepath if applicable in user language",
-	// 	"content: ${7:[]}"
-	//   ]
-	// },
-	// "Create new template": {
-	//   "prefix": ["template"],
-	//   "body": [
-	// 	"# yaml-language-server: $schema=./template.schema.json",
-	// 	"_id: ${1:$TM_FILENAME_BASE}",
-	// 	"designers: [\"Tiro.health\"]",
-	// 	"title: \"$2\" # choose title that will be displayed in the app",
-	// 	"pathway: $3 # kebab-case in english",
-	// 	"description: \"$4\" # Write a proper description or summary of the template. This will be displayed in the template overview.",
-	// 	"color: ${5|gray,blue|} #small caps and must include medical discpline and phase of carepath if applicable in user language",
-	// 	"icon: ${6|bowel,migraine,prostaat|}",
-	// 	"blocks: ",
-	// 	"   - $7"
-	//   ]
-	// },
-	// "New concept entity": {
-	//   "prefix": ["concept", "concept entity"],
-	//   "description": "Generate a new concept entit.",
-	//   "body": [
-	// 	"{",
-	// 	"    \"text\": \"$1\",",
-	// 	"    \"coding\": [{",
-	// 	"        \"display\": \"$1\",",
-	// 	"        \"code\": \"urn:uuid:$UUID\",",
-	// 	"        \"system\": \"http://tiro.health/fhir.sid\"",
-	// 	"    }],",
-	// 	"    \"semanticContext\": {",
-	// 	"        \"text\": \"$2\",",
-	// 	"        \"coding\": [{",
-	// 	"            \"display\": \"new concept\",",
-	// 	"            \"code\": \"tiro-health-new-0000\",",
-	// 	"            \"system\": \"http://tiro.health/fhir.sid\"",
-	// 	"         }]",
-	// 	"     }",
-	// 	"},"
-	//   ]
-	// }
-   }
+		"prefix": [
+			"is-a"
+		],
+		"body": [
+			"* codes from system $SCT where concept is-a #$0"
+		]
+	}
+}
